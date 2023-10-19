@@ -1,11 +1,9 @@
-export interface WhatsappOptions {
-  accessToken: string;
-  phoneNumberId: number;
+export interface WhatsAppOptions {
+    accessToken: string;
+    phoneNumberId: number;
 }
 
-export interface ConfigOptions extends WhatsappOptions {
-  baseUrl: string;
-  apiVersion: string;
-  // businessId: string;
-  // whatsappBusinessAccountId: string;
+export interface ConfigOptions extends WhatsAppOptions {
+    baseUrl: string;
+    apiVersion: string;
 }

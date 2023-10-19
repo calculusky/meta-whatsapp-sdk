@@ -1,5 +1,5 @@
-import { Requester } from "@/requester";
+import { Requester } from "../requester";
 
 export class BaseAPI {
-  constructor(protected client: Requester) {}
+    constructor(protected client: Requester) {}
 }

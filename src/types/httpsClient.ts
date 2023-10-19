@@ -1,31 +1,31 @@
-import { WhatsappError } from "@/errors";
+import { WhatsAppError } from "../errors";
 import { IncomingHttpHeaders } from "http";
 
 type RequestHeaders = {
-  Authorization: string;
-  "Content-Type"?: string;
+    Authorization: string;
+    "Content-Type"?: string;
 };
 
 export type SendRequestOptions = {
-  path: string;
-  method: string;
-  requestData?: any;
+    path: string;
+    method: string;
+    requestData?: any;
 };
 
 export interface HttpsClientOptions {
-  headers: RequestHeaders;
-  baseURL: string;
+    headers: RequestHeaders;
+    baseURL: string;
 }
 
 export type IHttpsClientResponse<D = Record<string, any>> = {
-  status: number;
-  headers: IncomingHttpHeaders;
-  error: WhatsappError | undefined;
-  data: D;
+    status: number;
+    headers: IncomingHttpHeaders;
+    error: WhatsAppError | undefined;
+    data: D;
 };
 
 export type RequestData = Record<string, unknown> | string;
 
 export interface IHttpsClient {
-  sendRequest(options: SendRequestOptions): Promise<IHttpsClientResponse>;
+    sendRequest(options: SendRequestOptions): Promise<IHttpsClientResponse>;
 }
