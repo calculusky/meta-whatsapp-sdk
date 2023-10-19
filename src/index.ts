@@ -3,6 +3,7 @@ import { Requester } from "./requester";
 import { ConfigOptions, WhatsAppOptions } from "./types/config";
 import * as Utils from "./utils";
 export * from "./errors";
+export * as IMessageAPI from "./types/message";
 
 export default class WhatsApp {
     private config: ConfigOptions;

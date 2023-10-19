@@ -1,5 +1,6 @@
 import { WhatsAppError } from "../errors";
 import { IncomingHttpHeaders } from "http";
+import { HttpMethod } from "./requester";
 
 type RequestHeaders = {
     Authorization: string;
@@ -8,7 +9,7 @@ type RequestHeaders = {
 
 export type SendRequestOptions = {
     path: string;
-    method: string;
+    method: HttpMethod;
     requestData?: any;
 };
 

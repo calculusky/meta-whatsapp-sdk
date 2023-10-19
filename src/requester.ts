@@ -1,5 +1,5 @@
 import { ConfigOptions } from "./types/config";
-import { SendRequestOptions } from "./types/requester";
+import { RequesterResponseData, SendRequestOptions } from "./types/requester";
 
 import HttpsClient from "./httpsClient";
 import { HttpsClientOptions, IHttpsClientResponse } from "./types/httpsClient";
@@ -39,7 +39,7 @@ export class Requester {
 
     async sendAPIRequest<TData>(
         options: SendRequestOptions
-    ): Promise<IHttpsClientResponse<TData>> {
+    ): Promise<RequesterResponseData<TData>> {
         try {
             const resp = await this.client.sendRequest({
                 method: options.method,
@@ -50,7 +50,7 @@ export class Requester {
             if (resp.error) {
                 throw resp.error;
             }
-            return resp as IHttpsClientResponse<TData>;
+            return resp.data as RequesterResponseData<TData>;
         } catch (error) {
             switch (true) {
                 case error instanceof WhatsAppError: {

@@ -1,4 +1,5 @@
 import { IHttpsClientResponse } from "./httpsClient";
+import { RequesterResponseData } from "./requester";
 
 export const enum MessageTypesEnum {
     Template = "template", // for template messages. Text and media (images and documents) message templates are supported.
@@ -61,6 +62,7 @@ export type MessagesResponse = GeneralMessageBody & {
     messages: [
         {
             id: string;
+            message_status: string;
         }
     ];
 };
@@ -290,33 +292,33 @@ export interface SendMessageOptions<
 export interface IMessageAPI {
     template(
         options: SendMessageOptions<MessageTypesEnum.Template>
-    ): Promise<IHttpsClientResponse<MessagesResponse>>;
+    ): Promise<RequesterResponseData<MessagesResponse>>;
 
     text(
         options: SendMessageOptions<MessageTypesEnum.Text>
-    ): Promise<IHttpsClientResponse<MessagesResponse>>;
+    ): Promise<RequesterResponseData<MessagesResponse>>;
 
     image(
         options: SendMessageOptions<MessageTypesEnum.Image>
-    ): Promise<IHttpsClientResponse<MessagesResponse>>;
+    ): Promise<RequesterResponseData<MessagesResponse>>;
 
     video(
         options: SendMessageOptions<MessageTypesEnum.Video>
-    ): Promise<IHttpsClientResponse<MessagesResponse>>;
+    ): Promise<RequesterResponseData<MessagesResponse>>;
 
     audio(
         options: SendMessageOptions<MessageTypesEnum.Audio>
-    ): Promise<IHttpsClientResponse<MessagesResponse>>;
+    ): Promise<RequesterResponseData<MessagesResponse>>;
 
     document(
         options: SendMessageOptions<MessageTypesEnum.Document>
-    ): Promise<IHttpsClientResponse<MessagesResponse>>;
+    ): Promise<RequesterResponseData<MessagesResponse>>;
 
     sticker(
         options: SendMessageOptions<MessageTypesEnum.Sticker>
-    ): Promise<IHttpsClientResponse<MessagesResponse>>;
+    ): Promise<RequesterResponseData<MessagesResponse>>;
 
     reaction(
         options: SendMessageOptions<MessageTypesEnum.Reaction>
-    ): Promise<IHttpsClientResponse<MessagesResponse>>;
+    ): Promise<RequesterResponseData<MessagesResponse>>;
 }

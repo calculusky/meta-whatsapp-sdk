@@ -7,6 +7,7 @@ import {
 } from "./types/httpsClient";
 import { IncomingMessage, IncomingHttpHeaders } from "http";
 import { WhatsAppError } from "./errors";
+import { HttpMethod } from "./types/requester";
 
 export default class HttpsClient implements IHttpsClient {
     constructor(protected clientOptions: HttpsClientOptions) {}
@@ -28,7 +29,12 @@ export default class HttpsClient implements IHttpsClient {
             req.on("error", (error) => {
                 reject(error);
             });
-            req.write(options.requestData);
+
+            const postDataMethods: HttpMethod[] = ["POST", "PUT"];
+            if (postDataMethods.includes(options.method)) {
+                req.write(options.requestData);
+            }
+
             req.end();
         });
     }

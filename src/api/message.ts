@@ -1,11 +1,11 @@
 import { IHttpsClientResponse, RequestData } from "../types/httpsClient";
-import { HttpMethod } from "../types/requester";
+import { HttpMethod, RequesterResponseData } from "../types/requester";
 import { BaseAPI } from "./base";
 
 import * as m from "../types/message";
 
 export default class MessageAPI extends BaseAPI implements m.IMessageAPI {
-    private readonly commonMethod = HttpMethod.POST;
+    private readonly commonMethod: HttpMethod = "POST";
     private readonly commonEndpoint = "messages";
 
     private bodyBuilder<
@@ -30,7 +30,7 @@ export default class MessageAPI extends BaseAPI implements m.IMessageAPI {
 
     private async send(
         requestData: RequestData
-    ): Promise<IHttpsClientResponse<m.MessagesResponse>> {
+    ): Promise<RequesterResponseData<m.MessagesResponse>> {
         return await this.client.sendAPIRequest({
             method: this.commonMethod,
             endpoint: this.commonEndpoint,
