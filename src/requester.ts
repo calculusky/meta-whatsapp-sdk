@@ -2,7 +2,7 @@ import { ConfigOptions } from "./types/config";
 import { RequesterResponseData, SendRequestOptions } from "./types/requester";
 
 import HttpsClient from "./httpsClient";
-import { HttpsClientOptions, IHttpsClientResponse } from "./types/httpsClient";
+import { HttpsClientOptions } from "./types/httpsClient";
 import { WhatsAppError } from "./errors";
 
 export class Requester {

@@ -1,4 +1,3 @@
-import { IHttpsClientResponse } from "./httpsClient";
 import { RequesterResponseData } from "./requester";
 
 export const enum MessageTypesEnum {
