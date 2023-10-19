@@ -1,4 +1,4 @@
-import {  RequestData } from "../types/httpsClient";
+import { RequestData } from "../types/httpsClient";
 import { HttpMethod, RequesterResponseData } from "../types/requester";
 import { BaseAPI } from "./base";
 
