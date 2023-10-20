@@ -239,7 +239,7 @@ type Language = "en" | "en_GB" | "en_US";
 
 export type ButtonTypes = "quick_reply" | "url";
 
-export type ButtonPosition = 1 | 2 | 3;
+export type ButtonPosition = 0 | 1 | 2;
 
 export interface BodyBuilderOptions<
     TMessageType extends MessageTypesEnum,
