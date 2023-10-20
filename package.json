@@ -24,7 +24,7 @@
         "preversion": "pnpm lint",
         "version": "pnpm format && git add .",
         "postversion": "git push --tags",
-        "patch": "npm version patch",
+        "npmpatch": "npm version patch",
         "npmpublish": "npm publish --access public"
     },
     "keywords": [
