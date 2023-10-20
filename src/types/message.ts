@@ -21,17 +21,16 @@ export type GeneralMessageBody = {
     messaging_product: "whatsapp";
 };
 
-export enum ParametersTypesEnum {
-    Currency = "currency",
-    DateTime = "date_time",
-    Document = "document",
-    Image = "image",
-    Text = "text",
-    Video = "video",
-    Payload = "payload",
-}
+export type ParametersTypes =
+    | "currency"
+    | "date_time"
+    | "document"
+    | "image"
+    | "text"
+    | "video"
+    | "payload";
 
-type ParametersObject<T extends ParametersTypesEnum> = {
+type ParametersObject<T extends ParametersTypes> = {
     type: T;
 };
 
@@ -71,8 +70,7 @@ type SimpleTextObject = {
     text: string;
 };
 
-type TextParametersObject = ParametersObject<ParametersTypesEnum.Text> &
-    SimpleTextObject;
+type TextParametersObject = ParametersObject<"text"> & SimpleTextObject;
 
 type CurrencyObject = {
     fallback_value: string;
@@ -80,19 +78,17 @@ type CurrencyObject = {
     amount_1000: number;
 };
 
-type CurrencyParametersObject =
-    ParametersObject<ParametersTypesEnum.Currency> & {
-        currency: CurrencyObject;
-    };
+type CurrencyParametersObject = ParametersObject<"currency"> & {
+    currency: CurrencyObject;
+};
 
 type DateTimeObject = {
     fallback_value: string;
 };
 
-type DateTimeParametersObject =
-    ParametersObject<ParametersTypesEnum.Currency> & {
-        date_time: DateTimeObject;
-    };
+type DateTimeParametersObject = ParametersObject<"date_time"> & {
+    date_time: DateTimeObject;
+};
 
 type MetaDocumentMediaObject = {
     id: string;
@@ -107,7 +103,7 @@ type HostedDocumentMediaObject = {
     filename?: string;
 };
 
-type DocumentParametersObject = ParametersObject<ParametersTypesEnum.Document> &
+type DocumentParametersObject = ParametersObject<"document"> &
     DocumentMediaObject;
 
 type MetaImageMediaObject = {
@@ -122,8 +118,7 @@ type HostedImageMediaObject = {
     caption?: string;
 };
 
-type ImageParametersObject = ParametersObject<ParametersTypesEnum.Image> &
-    ImageMediaObject;
+type ImageParametersObject = ParametersObject<"image"> & ImageMediaObject;
 
 type MetaHostedVideoMediaObject = {
     id: string;
@@ -147,16 +142,15 @@ type HostedAudioMediaObject = {
     link: string;
 };
 
-type VideoParametersObject = ParametersObject<ParametersTypesEnum.Video> &
-    VideoMediaObject;
+type VideoParametersObject = ParametersObject<"video"> & VideoMediaObject;
 
 type QuickReplyButtonParametersObject = {
-    type: ParametersTypesEnum.Payload;
+    type: "payload";
     payload: string;
 };
 
 type URLButtonParametersObject = SimpleTextObject & {
-    type: ParametersTypesEnum.Text;
+    type: "text";
 };
 
 type ButtonParameterObject =

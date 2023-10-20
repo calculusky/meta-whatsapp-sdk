@@ -23,7 +23,7 @@
         "prepublishOnly": "pnpm lint && pnpm test",
         "preversion": "pnpm lint",
         "version": "pnpm format && git add .",
-        "postversion": "git push && git push --tags"
+        "postversion": "git push --tags"
     },
     "keywords": [
         "WhatsApp",
