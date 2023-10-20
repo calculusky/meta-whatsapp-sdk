@@ -171,8 +171,8 @@ type ComponentObject<T extends ComponentTypes> = {
 
 type ButtonComponentObject = ComponentObject<"button"> & {
     parameters: ButtonParameterObject;
-    sub_type: ButtonTypesEnum;
-    index: ButtonPositionEnum;
+    sub_type: ButtonTypes;
+    index: ButtonPosition;
 };
 
 //message template
@@ -237,16 +237,9 @@ type CurrencyCodes = "EUR" | "USD" | "NGN";
 
 type Language = "en" | "en_GB" | "en_US";
 
-export const enum ButtonTypesEnum {
-    QuickReply = "quick_reply",
-    URL = "url",
-}
+export type ButtonTypes = "quick_reply" | "url";
 
-export const enum ButtonPositionEnum {
-    First,
-    Second,
-    Third,
-}
+export type ButtonPosition = 1 | 2 | 3;
 
 export interface BodyBuilderOptions<
     TMessageType extends MessageTypesEnum,
