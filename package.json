@@ -20,13 +20,13 @@
         "build": "tsc",
         "husky:install": "husky install",
         "prepare": "pnpm build",
-        "prepublishOnly": "pnpm lint && pnpm test",
-        "preversion": "pnpm lint",
+        "prepublishOnly": "pnpm lint",
+        "preversion": "pnpm lint && pnpm test",
         "version": "pnpm format && git add .",
         "postversion": "git push --tags",
         "npm:patch": "npm version patch",
         "npm:publish": "npm publish --access public",
-        "dev": "pnpm build && node dist/test.js"
+        "dev": "pnpm build && node dist/devtest.js"
     },
     "keywords": [
         "WhatsApp",
