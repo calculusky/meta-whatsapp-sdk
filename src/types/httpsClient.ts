@@ -1,5 +1,3 @@
-import { WhatsAppError } from "../errors";
-import { IncomingHttpHeaders } from "http";
 import { HttpMethod } from "./requester";
 
 type RequestHeaders = {
@@ -20,8 +18,6 @@ export interface HttpsClientOptions {
 
 export type IHttpsClientResponse<D = Record<string, any>> = {
     status: number;
-    headers: IncomingHttpHeaders;
-    error: WhatsAppError | undefined;
     data: D;
 };
 

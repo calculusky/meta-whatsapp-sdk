@@ -41,15 +41,12 @@ export class Requester {
         options: SendRequestOptions
     ): Promise<RequesterResponseData<TData>> {
         try {
-            const resp = await this.client.sendRequest({
+            const resp = await this.client.sendRequest<TData>({
                 method: options.method,
                 path: this.buildPath(options.endpoint),
                 requestData: options.body,
             });
 
-            if (resp.error) {
-                throw resp.error;
-            }
             return resp.data as RequesterResponseData<TData>;
         } catch (error) {
             switch (true) {
