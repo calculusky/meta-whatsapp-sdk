@@ -24,8 +24,8 @@
         "preversion": "pnpm lint",
         "version": "pnpm format && git add .",
         "postversion": "git push --tags",
-        "npmpatch": "npm version patch",
-        "npmpublish": "npm publish --access public",
+        "npm:patch": "npm version patch",
+        "npm:publish": "npm publish --access public",
         "dev": "pnpm build && node dist/test.js"
     },
     "keywords": [
